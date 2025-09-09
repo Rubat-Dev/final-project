@@ -19,7 +19,8 @@ const Genres = () => {
       const res = await axios.get("https://www.omdbapi.com/", {
         params: { apikey: API_KEY, s: genre },
       });
-      if (res.data?.Response === "True") setMovies((prev) => ({ ...prev, [genre]: res.data.Search }));
+      if (res.data?.Response === "True")
+        setMovies((prev) => ({ ...prev, [genre]: res.data.Search }));
     } catch (err) {
       console.error(err);
     }
@@ -27,13 +28,15 @@ const Genres = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 md:px-10 py-8">
-      <h1 className="text-4xl font-bold mb-8 text-center">🎬 Browse by Genre</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center">
+        🎬 Browse by Genre
+      </h1>
       {GENRES.map((genre) => (
         <div key={genre} className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">{genre}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 overflow-x-auto gap-4 pb-2">
-            {movies[genre]?.map((movie) => (
-              <div key={movie.imdbID} className="min-w-[150px]">
+            {movies[genre]?.map((movie, idx) => (
+              <div key={`${movie.imdbID}-${idx}`} className="min-w-[150px]">
                 <MovieCard
                   title={movie.Title}
                   year={movie.Year}
@@ -45,8 +48,10 @@ const Genres = () => {
           </div>
         </div>
       ))}
-      {selectedId && <MovieModal imdbID={selectedId} onClose={() => setSelectedId(null)} />}
+      {selectedId && (
+        <MovieModal imdbID={selectedId} onClose={() => setSelectedId(null)} />
+      )}
     </div>
   );
-}
+};
 export default Genres;

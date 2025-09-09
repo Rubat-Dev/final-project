@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -11,7 +11,6 @@ import { MovieProvider } from "./context/MovieContext";
 const App = () => {
   return (
     <MovieProvider>
-    <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,7 +21,6 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
-    </Router>
     </MovieProvider>
   );
 };

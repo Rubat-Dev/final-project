@@ -83,22 +83,6 @@ Movie Modal: Clicking a movie card opens a modal with detailed information, post
 Responsive Design: Mobile-friendly bottom sheet modal and adaptive layouts.
 
 
-## 💻 Screenshots
-
-**Home Page**  
-![Home Page](screenshots/HomePage.png)
-
-**Movie Modal**  
-![Movie Modal](screenshots/MovieModal.png)
-
-**Genres Page**  
-![Genres Page](screenshots/GenresPage.png)
-
-**Login/Signup Modal**  
-![Login/Signup Modal](screenshots/LoginModal.png)
-/MovieModal.png)
-
-
 📞 Contact
 
 For questions or contributions, reach out to Rubat Shaikh:

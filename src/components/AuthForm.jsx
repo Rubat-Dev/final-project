@@ -3,7 +3,7 @@ import { X } from "lucide-react";
 
 const AuthForm = ({ setLoginOpen, showLoginForm, setShowLoginForm }) => {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-black/70 bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white rounded-2xl p-8 w-full max-w-md relative">
         <button
           className="absolute top-4 right-4 text-gray-700 hover:text-red-500"
