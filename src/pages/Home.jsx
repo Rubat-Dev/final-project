@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import MovieCard from "../components/MovieCard";
 import MovieModal from "../components/MovieModal";
 import { useMovies } from "../context/MovieContext";
 
 const Home = () => {
-  const { movies, loading, error, fetchMovies, page, totalResults } = useMovies();
+  const { movies, loading, error, search, setSearch, fetchMovies } = useMovies();
   const [selectedId, setSelectedId] = useState(null);
+  const [showError, setShowError] = useState(false);
 
-  const totalPages = Math.max(1, Math.ceil((totalResults || 0) / 10));
+  // Show error for 3 sec
+  useEffect(() => {
+    if (error) {
+      setShowError(true);
+      const timer = setTimeout(() => setShowError(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -28,7 +36,7 @@ const Home = () => {
 
       {/* Movies Grid */}
       <main className="container mx-auto px-4 py-8">
-        {error && <div className="mb-6 text-red-500 text-center">{error}</div>}
+        {showError && <div className="mb-6 text-red-500 text-center">{error}</div>}
 
         {loading && (
           <div className="flex justify-center mb-6">
@@ -40,41 +48,22 @@ const Home = () => {
           {movies && movies.length > 0 ? (
             movies.map((movie, idx) => (
               <MovieCard
-                key={`${movie.imdbID}-${idx}`} 
+                key={`${movie.imdbID}-${idx}`}
                 title={movie.Title}
                 year={movie.Year}
                 poster={movie.Poster}
                 onClick={() => setSelectedId(movie.imdbID)}
               />
             ))
-            
           ) : (
-            !loading && <div className="mt-10 text-gray-400 col-span-full text-center">Try searching for "Inception", "Batman", or "Avengers".</div>
+            !loading &&
+            !showError && (
+              <div className="mt-10 text-gray-400 col-span-full text-center">
+                Try searching for "Inception", "Batman", or "Avengers".
+              </div>
+            )
           )}
         </section>
-
-        {/* Pagination Controls */}
-        <div className="flex justify-center items-center gap-3 mt-8">
-          <button
-            onClick={() => fetchMovies(Math.max(1, page - 1))}
-            disabled={page <= 1 || loading}
-            className={`px-4 py-2 rounded ${page <= 1 || loading ? "bg-gray-600 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
-          >
-            Prev
-          </button>
-
-          <div className="text-sm text-gray-300">
-            Page <span className="font-semibold text-white">{page}</span> of <span className="font-semibold text-white">{totalPages}</span>
-          </div>
-
-          <button
-            onClick={() => fetchMovies(page + 1)}
-            disabled={page >= totalPages || loading}
-            className={`px-4 py-2 rounded ${page >= totalPages || loading ? "bg-gray-600 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
-          >
-            Next
-          </button>
-        </div>
       </main>
 
       {/* Modal */}

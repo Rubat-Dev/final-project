@@ -36,7 +36,7 @@ export default function Contact() {
             placeholder="Your Message"
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
-            className="px-4 py-3 rounded-lg text-gray-900 shadow-lg bg-gray-100"
+            className="px-4 py-3 rounded-lg text-gray-900 shadow-lg bg-gray-100 resize-none"
             rows={5}
             required
           />

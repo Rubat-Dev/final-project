@@ -3,10 +3,10 @@ import React from 'react'
 
 const About = () => {
     const teamMembers = [
-             { name: "Alice Johnson", role: "Frontend Developer", image: "/alice.jpeg" },
-             { name: "David Smith", role: "Backend Developer", image: "/david.jpeg" },
-             { name: "Sophie Lee", role: "UI/UX Designer", image: "/sophie.jpeg" },
-             { name: "Michael Brown", role: "Project Manager", image: "/michael.jpeg" },
+             { name: "Alice Johnson", role: "Frontend Developer", image: "https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+             { name: "David Smith", role: "Backend Developer", image: "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+             { name: "Sophie Lee", role: "UI/UX Designer", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+             { name: "Michael Brown", role: "Project Manager", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
            ];
   return (
     <div className='min-h-screen bg-gray-900 text-white px-4 md:px-10 py-12'>
