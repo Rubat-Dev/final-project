@@ -5,7 +5,7 @@ import MovieModal from "../components/MovieModal";
 import { useMovies } from "../context/MovieContext";
 
 const Home = () => {
-  const { movies, loading, error, search, setSearch, fetchMovies } = useMovies();
+  const { movies, loading, error, } = useMovies();
   const [selectedId, setSelectedId] = useState(null);
   const [showError, setShowError] = useState(false);
 
