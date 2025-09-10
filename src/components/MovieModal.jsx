@@ -92,3 +92,4 @@ const MovieModal = ({ imdbID, onClose }) => {
 };
 
 export default MovieModal;
+

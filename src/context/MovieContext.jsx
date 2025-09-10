@@ -3,6 +3,7 @@ import axios from "axios";
 
 const MovieContext = createContext();
 const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
+const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 export const MovieProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
@@ -77,3 +78,4 @@ export const MovieProvider = ({ children }) => {
 };
 
 export const useMovies = () => useContext(MovieContext);
+

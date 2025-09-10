@@ -5,12 +5,11 @@ import { Menu, X, User, Search } from "lucide-react";
 import { useMovies } from "../context/MovieContext";
 
 const Navbar = () => {
-  const { fetchMovies } = useMovies();
+  const { fetchMovies, search, setSearch} = useMovies();
   const [mobileMenu, setMobileMenu] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(true);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [search, setSearch] = useState("");
 
   const links = [
     { name: "Home", path: "/" },
@@ -98,7 +97,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg md:hidden px-6 py-6 w-full z-40 transition-transform duration-500 ${
+        className={`absolute top-0 left-0 bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg md:hidden px-6 py-6 w-full z-40 transition-transform duration-500 ${
           mobileMenu ? "translate-y-[64px]" : "-translate-y-full"
         }`}
       >
